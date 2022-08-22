@@ -53,6 +53,22 @@ nav.addEventListener('click', e => {
     let actualNav = afterNav[targetNav];
     
     moveToExactNav(currentAfterNav, actualNav);
-
-    //
 })
+
+slideNav[0].addEventListener("click", e => {
+    let currentSlide = track.querySelector('.current__slide')
+    let actualSlide =  slides[0];
+    moveToExactSlide(track, currentSlide , actualSlide);
+})
+
+slideNav[1].addEventListener("click", e => {
+    let currentSlide = track.querySelector('.current__slide')
+    let actualSlide =  slides[1];
+    moveToExactSlide(track, currentSlide , actualSlide);
+})
+
+slideNav[2].addEventListener("click", e => {
+    let currentSlide = track.querySelector('.current__slide')
+    let actualSlide =  slides[2];
+    moveToExactSlide(track, currentSlide , actualSlide);
+} )

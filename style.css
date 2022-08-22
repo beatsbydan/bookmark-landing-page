@@ -223,7 +223,7 @@ header{
 .carousel__track{
     width: inherit;
     position: relative;
-    transition: all 250ms ease in;;
+    transition: all 250ms ease-in;
 }
 .carousel__slide{
     width: inherit;
