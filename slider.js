@@ -22,25 +22,45 @@ function moveToExactSlide(tracks, currentSlides, targetSlides){
     tracks.style.transform = 'translateX(-' +targetSlides.style.left+ ')';
 }
 
+//function to move red color
+function moveToExactNav(afterNavs, targetAfterNavs){
+    afterNavs.classlist.remove("current__nav")
+    targetAfterNavs.classlist.add("current__nav")
+}
+
 //slide navs
 //getting the block of content of the navs
-const nav = document.querySelector('.the__navs')
+let nav = document.querySelector('.the__navs')
 //making an array of the content of the navs
-const slideNavBlock = Array.from(nav.children)
+let slideNavBlock = Array.from(nav.children)
 //filtering the array to select the three navs
-const slideNav = slideNavBlock.filter((indexes) => {
+let slideNav = slideNavBlock.filter((indexes) => {
     return indexes === slideNavBlock[1] || indexes === slideNavBlock[3] || indexes === slideNavBlock[5];
+})
+//filtering the array to select the three reds
+let afterNav = slideNavBlock.filter((reds) => {
+    return reds === slideNavBlock[2] || reds === slideNavBlock[4] || reds === slideNavBlock[6];
 })
 
 //clicking to view slides
 nav.addEventListener('click', e => {
     //targetting the closest paragraph
-    const targetIndex = e.target.closest('p');
-    const currentSlide = track.querySelector('.current__slide')
-    const currentNav = nav.querySelector('.current__nav')
-    const targetNav = slideNav.findIndex(index => index === targetIndex)
-    const targetSlide = slides[targetNav]
+    let targetIndex = e.target.closest('p');
+    //getting the closest div
+    let targetIndexx = e.target.closest('div');
+    //obtaining the current slide
+    let currentSlide = track.querySelector('.current__slide');
+    //obtaining the currentNav
+    let currentAfterNav = nav.querySelector('.current__nav');
+    //obtaining the targetNav
+    let targetNav = slideNav.findIndex(index => index === targetIndex);
+    //obtaining the tragetslide
+    let targetSlidess = slides.findIndex(indexx => indexx === targetIndexx );
+    //obtaining the actualslide
+    let targetSlide = slides[targetSlidess];
+    //obtaining the actualnav
+    let actualNav = afterNav[targetNav];
     
     moveToExactSlide(track, currentSlide, targetSlide);
+    moveToExactNav(currentAfterNav, actualNav);
 })
-//slideNav.addEventListener("click", () => {})
