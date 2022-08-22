@@ -11,21 +11,20 @@ const slideWidth = slides[0].getBoundingClientRect().width
 function setSlidePosition(slide, index){
     slide.style.left = slideWidth * index + 'px';
 }
-
 //setting the position
 slides.forEach(setSlidePosition);
 
 //function to move slides
-function moveToExactSlide(tracks, currentSlides, targetSlides){
-    currentSlides.classlist.remove("current__slide");
-    targetSlides.classlist.add("current__slide");
+const moveToExactSlide = (tracks, currentSlides, targetSlides) =>{
+    currentSlides.classList.remove("current__slide");
+    targetSlides.classList.add("current__slide");
     tracks.style.transform = 'translateX(-' +targetSlides.style.left+ ')';
 }
 
 //function to move red color
-function moveToExactNav(afterNavs, targetAfterNavs){
-    afterNavs.classlist.remove("current__nav")
-    targetAfterNavs.classlist.add("current__nav")
+const moveToExactNav = (afterNavs, targetAfterNavs) => {
+    afterNavs.classList.remove("current__nav")
+    targetAfterNavs.classList.add("current__nav")
 }
 
 //slide navs
@@ -46,21 +45,14 @@ let afterNav = slideNavBlock.filter((reds) => {
 nav.addEventListener('click', e => {
     //targetting the closest paragraph
     let targetIndex = e.target.closest('p');
-    //getting the closest div
-    let targetIndexx = e.target.closest('div');
-    //obtaining the current slide
-    let currentSlide = track.querySelector('.current__slide');
     //obtaining the currentNav
     let currentAfterNav = nav.querySelector('.current__nav');
     //obtaining the targetNav
     let targetNav = slideNav.findIndex(index => index === targetIndex);
-    //obtaining the tragetslide
-    let targetSlidess = slides.findIndex(indexx => indexx === targetIndexx );
-    //obtaining the actualslide
-    let targetSlide = slides[targetSlidess];
     //obtaining the actualnav
     let actualNav = afterNav[targetNav];
     
-    moveToExactSlide(track, currentSlide, targetSlide);
     moveToExactNav(currentAfterNav, actualNav);
+
+    //
 })

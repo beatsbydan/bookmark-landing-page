@@ -113,9 +113,6 @@ header{
 /*end of header styling*/
 
 /*main styling*/
-main{
-    position: relative;
-}
 /*block-1 styling*/
 .block-1{
     margin-top: 120px;
@@ -222,7 +219,6 @@ main{
     position: relative;
     margin-top: 120px;
     width: inherit;
-    /*overflow: hidden;*/
 }
 .carousel__track{
     width: inherit;
@@ -329,6 +325,7 @@ main{
 /*block-4 styling*/
 .block-4{
     margin-top: 680px;
+    position: relative;
     text-align: center;
     padding: 0 6%;
 }
@@ -639,13 +636,29 @@ small{
     fill: var(--softred);
 }
 /*end of footer styling*/
+@media screen and (min-width:450px) {
+    .block-4{
+        margin-top: 780px;
+    }
+}
+@media screen and (min-width:550px){
+    .block-4{
+        margin-top: 880px;
+    }
+}
 @media (min-width:650px) {
     form{
         width: 500px;
     }
+    .block-4{
+        margin-top: 880px;
+    }
 }
 
 @media (min-width:850px){
+    .block-4{
+        margin-top:600px;
+    }
     header{
         width: 100%;
         margin-bottom: 180px;
@@ -757,9 +770,9 @@ small{
         padding: unset;
         gap: 40px;
     }
-    .line-5, .line-6, .line-7, .line-8{
+    /*.line-5, .line-6, .line-7, .line-8{
         display: none;
-    }
+    }*/
     .block-5{
         flex-direction: row;
     }
